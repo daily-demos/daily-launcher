@@ -1,0 +1,4 @@
+[build]
+  base    = "./launcher"
+  publish = "./dist/"
+  environment = {NODE_VERSION = "20.10.0" }

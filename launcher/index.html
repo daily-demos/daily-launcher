@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Daily Video Launcher</title>
+    <link href="./style.css" rel="stylesheet" />
 </head>
 <body>
-    <p id="msg"></p>
+    <div id="container">
+        <h1>Daily Video</h1>
+        <p>Please click <b>Open Daily Video</b> if you see the system dialog.</p>
+        <p>If you don't see a system dialog, click Launch Daily Video below</p>
+        <button id="launchDesktop" class="teal-btn">Launch Daily Video</button>
+        <div id="download" class="hidden">
+            <p>Don't have Daily Video installed?</p>
+            <h2>Download Daily Video</h2>
+            <div id="mac">
+                <a href="" id="macARMDownload" class="light-btn">Mac (Apple silicon)</a>
+                <a href="" id="macIntelDownload" class="light-btn">Mac (Intel)</a>
+            </div>
+            <div id="win">
+                <a href="" id="windowsDownload" class="light-btn">Windows</a>
+            </div>
+
+            <p>[Please run the application once after installing.]</p>
+        </div>
+
+        <p>Or <a id="launchBrowser" href="">Join from your browser</a></p>
+
+    </div>
+    <script src="https://www.unpkg.com/ua-parser-js@1.0.37/src/ua-parser.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
