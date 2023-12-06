@@ -1,0 +1,14 @@
+{
+  "name": "daily-desktop-launcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c -1"
+  },
+  "author": "Liza Shulyayeva",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

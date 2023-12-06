@@ -1,0 +1,80 @@
+{
+  "name": "daily-video",
+  "version": "1.0.0",
+  "description": "Integrating the Daily Prebuilt into an Electron app",
+  "main": "src/main.js",
+  "scripts": {
+    "pack": "electron-builder --dir",
+    "build": "electron-builder",
+    "dist": "electron-builder -mw"
+  },
+  "author": "Liza Shulyayeva",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "electron": "^27.1.2",
+    "electron-builder": "^24.9.1",
+    "prettier": "^3.1.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "build": {
+    "appId": "com.daily.dailyvideo",
+    "asar": true,
+    "directories": {
+      "output": "out"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true
+    },
+    "dmg": {
+      "title": "Daily Video",
+      "contents": [
+        {
+          "x": "20",
+          "y": "100"
+        },
+        {
+          "x": "160",
+          "y": "100",
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "window": {
+        "width": "540",
+        "height": "380"
+      }
+    },
+    "portable": {
+      "artifactName": "daily-video.exe",
+      "unpackDirName": "DailyVideo"
+    }
+  }
+}
