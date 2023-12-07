@@ -1,4 +1,3 @@
 [build]
-  base    = "./launcher"
-  publish = "./dist/"
+  base = "/launcher"
 
