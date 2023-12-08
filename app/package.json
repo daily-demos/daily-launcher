@@ -1,6 +1,7 @@
 {
   "name": "daily-video",
   "version": "1.0.0",
+  "repository": "https://github.com/daily-demos/daily-launcher/",
   "description": "Integrating the Daily Prebuilt into an Electron app",
   "main": "src/main.js",
   "scripts": {
@@ -50,6 +51,14 @@
       ]
     },
     "mac": {
+      "hardenedRuntime": false,
+      "entitlements": "entitlements.mac.plist",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "Please give us access to your microphone",
+        "NSCameraUsageDescription": "Please give us access to your camera",
+        "com.apple.security.device.audio-input": true,
+        "com.apple.security.device.camera": true
+      },
       "target": [
         {
           "target": "dmg",
