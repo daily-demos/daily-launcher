@@ -1,4 +1,4 @@
-# Notarizing the app
+# Signing and notarizing the app for Mac OS
 
 You can only notarize apps that you sign with a `Developer ID certificate`. 
 If you use any other certificate, the notarization fails with the following error:
