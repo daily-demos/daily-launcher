@@ -1,17 +1,21 @@
 {
   "name": "daily-video",
   "version": "1.0.0",
+  "repository": "https://github.com/daily-demos/daily-launcher/",
   "description": "Integrating the Daily Prebuilt into an Electron app",
   "main": "src/main.js",
   "scripts": {
     "pack": "electron-builder --dir",
     "build": "electron-builder",
-    "dist": "electron-builder -mw"
+    "dist": "electron-builder -mw",
+    "notarize": "node ./notarize.js"
   },
   "author": "Liza Shulyayeva",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "electron": "^27.1.2",
+    "@electron/notarize": "^2.2.0",
+    "dotenv": "^16.3.1",
+    "electron": "^28.0.0",
     "electron-builder": "^24.9.1",
     "prettier": "^3.1.0"
   },
@@ -19,8 +23,10 @@
     "electron-squirrel-startup": "^1.0.0"
   },
   "build": {
-    "appId": "com.daily.dailyvideo",
+    "appId": "co.daily.launcher",
     "asar": true,
+    "afterSign": "./notarize.js",
+    "forceCodeSigning": true,
     "directories": {
       "output": "out"
     },
@@ -45,6 +51,27 @@
           "arch": [
             "x64",
             "ia32"
+          ]
+        }
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "hardenedRuntime": true,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist",
+      "gatekeeperAssess": false,
+      "type": "distribution",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "Please give us access to your microphone",
+        "NSCameraUsageDescription": "Please give us access to your camera"
+      },
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
           ]
         }
       ]
